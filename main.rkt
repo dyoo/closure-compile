@@ -14,11 +14,10 @@
 
 
 (define java-path (find-executable-path "java"))
-(define jar-path "compiler.jar")
+(define-runtime-path jar-path "compiler.jar")
 
 
 (provide/contract
- #;[raw-compile-js (input-port? output-port? output-port? . -> . any)]
  [closure-compile ((string?) 
                    ((one-of/c 'whitespace
                               'simple

@@ -1,6 +1,7 @@
 #lang scribble/manual
 
-@title{closure-compile: Compile and compress JavaScript source with the Google Closure Compiler}
+@title{closure-compile: Compile and compress JavaScript source with
+the Google Closure Compiler}
 
 @(require planet/scribble
           planet/version
@@ -30,7 +31,7 @@ This library exposes the Google
 Racket.
 
 The module requires runtime access to Java; 
-the value of @racket[(find-executable-path 'java)] should point to a valid Java executable.
+the value of @racket[(find-executable-path "java")] should point to a valid Java executable.
 
 
 @defmodule/this-package[main]
