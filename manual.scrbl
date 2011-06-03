@@ -27,7 +27,7 @@ the Google Closure Compiler}
     
      
 This library exposes the Google
-@link["http://closure-compiler.googlecode.com"]{Closure compiler} from
+@link["http://closure-compiler.googlecode.com"]{Closure compiler} to
 Racket.
 
 The module requires runtime access to Java; 
@@ -42,10 +42,19 @@ the value of @racket[(find-executable-path "java")] should point to a valid Java
 
                    @examples[#:eval my-evaluator 
                    (closure-compile "alert('hello ' + 'world');")
-                   (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');")
+                   (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');"
+                                    'whitespace)
+                   (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');"
+                                    'simple)
                    (closure-compile "
                        var f = function(x) { 
                            return x * x; 
                        };
-                       alert( f(3) );")]
+                       alert( f(3) );")
+                   (closure-compile "
+                       var f = function(x) { 
+                           return x * x; 
+                       };
+                       alert( f(3) );"
+                                    'advanced)]
                    }
