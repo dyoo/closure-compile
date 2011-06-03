@@ -1,6 +1,6 @@
 #lang scribble/manual
 
-@title{closure-compile: Compile JavaScript source with the Closure Compiler}
+@title{closure-compile: Compile and compress JavaScript source with the Google Closure Compiler}
 
 @(require planet/scribble
           planet/version
@@ -41,6 +41,7 @@ the value of @racket[(find-executable-path 'java)] should point to a valid Java 
 
                    @examples[#:eval my-evaluator 
                    (closure-compile "alert('hello ' + 'world');")
+                   (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');")
                    (closure-compile "
                        var f = function(x) { 
                            return x * x; 
