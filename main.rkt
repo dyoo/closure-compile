@@ -24,6 +24,13 @@
                               'advanced)) . ->* . string?)])
 
 
+;; Let's make sure to error out predictably if Java doesn't exist.
+(unless (path? java-path)
+  (error 'closure-compile "Unable to find Java in the current PATH."))
+
+
+
+
 (define (closure-compile code [compilation-level 'simple])
   (let ([marks (current-continuation-marks)]
         [compiled-code-port (open-output-string)]
