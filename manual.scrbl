@@ -38,7 +38,9 @@ the value of @racket[(find-executable-path "java")] should point to a valid Java
 @defproc[(closure-compile [code string?]
                           [compilation-level (or/c 'whitespace 'simple 'advanced) 'simple])
          string?]{
-                  @racket[closure-compile] takes the given @racket[code] and passes it to the Closure compiler.  If anything bad happens, it will raise an @racket[exn:fail] and hold the error message in the exception's @racket[exn-message].
+                  @racket[closure-compile] takes the given @racket[code] and passes it to the Closure compiler.  It should return a minified version of @racket[code].  @racket[compilation-level] adjusts the optimization that the Closure compiler will perform.
+                   
+                   If anything bad happens, it will raise an @racket[exn:fail] and hold the error message in the exception's @racket[exn-message].
 
                    @examples[#:eval my-evaluator 
                    (closure-compile "alert('hello ' + 'world');")
