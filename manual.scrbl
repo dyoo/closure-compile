@@ -42,6 +42,7 @@ the value of @racket[(find-executable-path "java")] should point to a valid Java
 
                    @examples[#:eval my-evaluator 
                    (closure-compile "alert('hello ' + 'world');")
+                   (closure-compile "{this should raise an error")
                    (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');"
                                     'whitespace)
                    (closure-compile "alert('hello, I see: ' + (3 + 4) + '!');"
