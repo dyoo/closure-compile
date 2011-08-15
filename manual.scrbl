@@ -8,8 +8,12 @@ the Google Closure Compiler}
           planet/resolver
           scribble/eval
           racket/sandbox
+          racket/runtime-path
           (for-label racket/base)
           (for-label (this-package-in main)))
+
+
+@(define-runtime-path main.rkt "main.rkt")
 
 @(define my-evaluator
    (call-with-trusted-sandbox-configuration 
@@ -19,7 +23,7 @@ the Google Closure Compiler}
         (make-evaluator 
          'racket/base
          #:requires
-         (list (resolve-planet-path `(planet , (this-package-version-symbol main)))))))))
+         (list main.rkt))))))
 
 @;@(define my-evaluator
 @;   (let ([p (resolve-planet-path `(planet , (this-package-version-symbol main)))])
